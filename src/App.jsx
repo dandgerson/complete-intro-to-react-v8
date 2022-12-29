@@ -1,4 +1,5 @@
 import { Pet } from "./Pet";
+import { SearchParams } from "./SearchParams";
 
 const pets = [
   {
@@ -25,6 +26,7 @@ export const App = () => {
   return (
     <div>
       <h1>Adopt me!</h1>
+      <SearchParams />
       {pets.map((pet) => (
         <Pet
           key={pet.id}
