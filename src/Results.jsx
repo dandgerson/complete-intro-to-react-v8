@@ -6,6 +6,7 @@ export const Results = ({ pets }) => (
       pets.map((pet) => (
         <Pet
           key={pet.id}
+          id={pet.id}
           name={pet.name}
           animal={pet.animal}
           breed={pet.breed}
