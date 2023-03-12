@@ -1,7 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { fetchPets } from "./fetchPets";
 import { Carousel } from "./Caruosel";
+import { ErrorBoundary } from "./ErrorBoundary";
 
 export const Details = () => {
   const { id } = useParams();
@@ -33,3 +34,16 @@ export const Details = () => {
     </div>
   );
 };
+
+export const DetailsWithErrorBoundary = (props) => (
+  <ErrorBoundary
+    renderErrorContent={() => (
+      <h2>
+        There was an error with this listing.{" "}
+        <Link to={"/"}>Click here to go back to the home page</Link>
+      </h2>
+    )}
+  >
+    <Details {...props} />
+  </ErrorBoundary>
+);

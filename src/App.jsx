@@ -1,8 +1,7 @@
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import { SearchParams } from "./SearchParams";
-import { Details } from "./Details";
+import { DetailsWithErrorBoundary } from "./Details";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { Carousel } from "./Caruosel";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -22,7 +21,7 @@ export const App = () => {
         </header>
 
         <Routes>
-          <Route path="/details/:id" element={<Details />} />
+          <Route path="/details/:id" element={<DetailsWithErrorBoundary />} />
           <Route path="/" element={<SearchParams />} />
         </Routes>
       </QueryClientProvider>
